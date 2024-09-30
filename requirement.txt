@@ -1,0 +1,18 @@
+--find-links https://download.pytorch.org/whl/torch_stable.html
+opencv-python==4.5.5.64
+gradio == 4.37.2
+pandas==1.4.0
+Pillow==10.3.0
+protobuf==3.17.3
+pycm==3.2
+pydicom==2.3.0
+scikit-image==0.19.2
+scikit-learn==1.0.2
+matplotlib==3.5.0
+scipy==1.5.4
+tensorboard==2.8.0
+tensorboard-data-server==0.6.1
+tensorboard-plugin-wit==1.8.0
+timm==0.5.4
+tqdm==4.62.1
+imageio==2.15.0

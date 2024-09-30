@@ -1,0 +1,34 @@
+python  main_finetune.py     
+--batch_size 16     
+--world_size 1     
+--model vit_large_patch16     
+--epochs 1     
+--blr 0     
+--layer_decay 0.65      
+--weight_decay 0.05     
+--drop_path 0.1     
+--nb_classes 5    
+--data_path ./data/OCTID/     
+--task ./finetune_OCTID/     
+--finetune ./models/RETFound_cfp_weights.pth
+--input_size 224  
+--device cuda 
+
+
+export CUDA_LAUNCH_BLOCKING=1
+
+python  main_finetune.py     --batch_size 16     --world_size 1     --model vit_large_patch16     --epochs 1     --blr 5e-3     --layer_decay 0.65      --weight_decay 0.65     --drop_path 0.1     --nb_classes 5     --data_path ./data/OCTID/      --task ./finetune_OCTID       --finetune ./models/RETFound_cfp_weights.pth     --input_size 224
+
+
+python -m torch.distributed.launch --nproc_per_node=1 --master_port=48798 main_finetune.py \
+    --batch_size 16 \
+    --world_size 1 \
+    --model vit_large_patch16 \
+    --epochs 50 \
+    --blr 5e-3 --layer_decay 0.65 \
+    --weight_decay 0.05 --drop_path 0.2 \
+    --nb_classes 5 \
+    --data_path ./data/OCTID/ \
+    --task ./finetune_OCTID/ \
+    --finetune ./models/RETFound_cfp_weights.pth \
+    --input_size 224
